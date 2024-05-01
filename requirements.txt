@@ -1,0 +1,34 @@
+Employee Management System
+Description: Develop a system to manage employee records, including creating, updating, retrieving, and deleting employee details, departments and roles.
+
+Employee Profile Management:
+Models Involved: Employee, Department, Role
+Requirements:
+Create a model for Employees with fields such as ID (Auto Increment), name, email, department, role, and date of joining.
+Implement CRUD operations for Employee details as per the association rules between Employee, Department & Role.
+Employees should be able to update their profile except for department and role.
+
+Department Management:
+Models Involved: Department
+Requirements:
+Design a Department model with fields like department ID, name, and description.
+Allow authorized users (e.g., admins) to add, update, and delete departments.
+Provide a feature to list all employees in a specific department.
+
+Role Assignment and Management:
+Models Involved: Role, Employee
+Requirements:
+Create a Role model with fields such as role ID and role name.
+Implement functionalities to assign roles to employees and change their roles by authorized personnel.
+Support listing all employees with a specific role.
+
+Project Details : 
+Implement RESTful API architecture using Spring Boot.
+Integrate MySQL Database.
+Add the right cardinality rules between the models.
+Use Hibernate ORM for database interaction to simplify CRUD operations and ensure data integrity.
+Consider adding logging for each CRUD operation to help in debugging and monitoring the system's usage.
+
+
+
+
