@@ -30,13 +30,7 @@ public class DepartmentController {
 
     @PutMapping("/{id}")
     public Department updateDepartment(@PathVariable Long id, @RequestBody Department departmentDetails) {
-        Department department = departmentService.getDepartmentById(id).orElse(null);
-        if (department != null) {
-            department.setName(departmentDetails.getName());
-            department.setDescription(departmentDetails.getDescription());
-            return departmentService.saveDepartment(department);
-        }
-        return null;
+        return departmentService.updateDepartment(id, departmentDetails);
     }
 
     @DeleteMapping("/{id}")

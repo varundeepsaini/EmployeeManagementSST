@@ -29,15 +29,7 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
-        Employee employee = employeeService.getEmployeeById(id).orElse(null);
-        if (employee != null) {
-            // Update only allowed fields
-            employee.setName(employeeDetails.getName());
-            employee.setEmail(employeeDetails.getEmail());
-            employee.setDateOfJoining(employeeDetails.getDateOfJoining());
-            return employeeService.saveEmployee(employee);
-        }
-        return null;
+        return employeeService.updateEmployee(id,employeeDetails);
     }
 
     @DeleteMapping("/{id}")

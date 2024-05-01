@@ -32,4 +32,9 @@ public class RoleController {
         roleService.deleteRole(id);
     }
 
+    @PutMapping("/{id}")
+    public Role updateRole(@PathVariable Long id, @RequestBody Role roleDetails) {
+        return roleService.updateRole(id,roleDetails);
+    }
+
 }

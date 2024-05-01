@@ -28,4 +28,21 @@ public class RoleService {
     public void deleteRole(Long id) {
         roleRepository.deleteById(id);
     }
+
+    public Role updateRole(Long id , Role roleDetails){
+
+
+        Optional<Role> roleoptional = roleRepository.findById(id);
+
+
+        if (roleoptional.isPresent()) {
+            Role existingRole = roleoptional.get();
+
+            existingRole.setRoleName(roleDetails.getRoleName());
+            existingRole.setEmployees(roleDetails.getEmployees());
+
+            return roleRepository.save(existingRole);
+        }
+        return null;
+    }
 }

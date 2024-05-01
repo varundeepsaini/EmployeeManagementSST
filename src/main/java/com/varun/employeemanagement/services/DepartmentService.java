@@ -28,4 +28,19 @@ public class DepartmentService {
     public void deleteDepartment(Long id) {
         departmentRepository.deleteById(id);
     }
+
+    public Department updateDepartment(Long id , Department departmentDetails){
+
+        Optional<Department> departmentoptional = departmentRepository.findById(id);
+
+        if (departmentoptional.isPresent()) {
+            Department existingDepartment = departmentoptional.get();
+            existingDepartment.setName(departmentDetails.getName());
+            existingDepartment.setDescription(departmentDetails.getDescription());
+            existingDepartment.setEmployees(departmentDetails.getEmployees());
+
+            return departmentRepository.save(existingDepartment);
+        }
+        return null;
+    }
 }

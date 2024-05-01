@@ -28,4 +28,22 @@ public class EmployeeService {
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
+
+    public Employee updateEmployee(Long id , Employee employeeDetails){
+
+        Optional<Employee> employeeoptional = employeeRepository.findById(id);
+
+        if (employeeoptional.isPresent()) {
+            Employee existingEmployee = employeeoptional.get();
+
+            existingEmployee.setName(employeeDetails.getName());
+            existingEmployee.setEmail(employeeDetails.getEmail());
+            existingEmployee.setDepartment(employeeDetails.getDepartment());
+            existingEmployee.setRole(employeeDetails.getRole());
+            existingEmployee.setDateOfJoining(employeeDetails.getDateOfJoining());
+
+            return employeeRepository.save(existingEmployee);
+        }
+        return null;
+    }
 }
